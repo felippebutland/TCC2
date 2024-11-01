@@ -1,0 +1,71 @@
+\documentclass[
+hidelinks,
+12pt,
+openany,
+oneside,
+a4paper,
+chapter=TITLE,
+portuguese, % ou english
+english
+]{abntex2}
+
+\usepackage{config}
+\makeglossaries
+
+\begin{document}
+\begin{OnehalfSpace}
+\input{pages/0_capa}
+\clearpage
+
+\pagenumbering{roman}
+\textual
+\pagestyle{simple} % tira cabeçalho com nome do capítulo e exibe só paginação
+\setcounter{page}{2}
+\input{pages/1_folha_rosto}
+\input{pages/2_folha_aprovacao}
+%\input{pages/3_figuras}
+%\input{pages/4_quadros}
+%\input{pages/5_resumo}
+%\input{pages/5.1_abstract}
+
+% Lista de ilustrações (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
+%\listoffigures*
+%\clearpage
+% Lista de tabelas (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
+%\listoftables*
+%\cleardoublepage
+% \cleardoublepage
+%\input{pages/6_siglas}
+
+
+% Lista de abreviaturas e siglas (elemento opcional - recomenda-se que sejam elaboradas a partir de 5 itens)
+
+\pdfbookmark[0]{\bfseries\fontfamily{ptm}\selectfont\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\pagenumbering{arabic}
+\input{pages/capitulos/cap1}
+\input{pages/capitulos/cap2}
+\input{pages/capitulos/cap3}
+\input{pages/capitulos/cap4}
+
+
+
+\bibliography{references/export}
+
+% Glossário
+ %\input{pages/90_glossario}
+
+% Apêndice
+ %\input{pages/91_apendice}
+
+% Anexo
+ %\input{pages/92_anexo}
+
+% Índice
+ %\input{pages/93_indice}
+
+
+\end{OnehalfSpace}
+\end{document}

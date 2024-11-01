@@ -1,0 +1,102 @@
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[left=3cm,top=3cm,right=2cm,bottom=2cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage{times} %fonte Adobe Times Roman 
+\usepackage{lastpage} % usado pela ficha catalográfica
+\usepackage{color} % controle das cores		
+\usepackage{graphicx} % inclusão de gráficos
+\usepackage{float} % força as figuras a ficarem depois do texto que você colocou
+\usepackage{chemfig,chemmacros}
+\usepackage{upgreek}
+\usepackage{microtype} % para melhorias de justificação	
+\usepackage{pdfpages}
+\usepackage{makeidx}
+\usepackage{quoting}
+\usepackage{afterpage}
+\usepackage{indentfirst} % indenta todos os primeiros parágrafos
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{footnote}
+\usepackage{threeparttable}
+\usepackage[acronym]{glossaries}
+\usepackage{makecell}
+\makesavenoteenv{table}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+\linespread{1.5}\selectfont
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\usepackage{amsmath} % for 'align' environment
+\newcommand\vn[1]{\mathrm{#1}} % "vn" is short for "variable name"
+
+
+%\usepackage{xltxtra}
+
+% \renewcommand{\ABNTEXchapterfontsize}{\bfseries\normalsize}
+% \renewcommand{\ABNTEXsectionfontsize}{\bfseries\normalsize}
+% \renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\usepackage{hyperref} % para permitir a criação de links
+\renewcommand{\ABNTEXchapterfontsize}{\bfseries\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsectionfontsize}{\bfseries\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize\fontfamily{ptm}\selectfont}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+% \usepackage{amsmath,amssymb,amsfonts,textcomp} % vários pacotes juntos, utilizados para usar funções e outros símbolos matemáticos
+%\fancyhf{} % numeração no canto superior direito
+%\fancyheadoffset{0cm}
+%\renewcommand{\headrulewidth}{0pt} 
+%\renewcommand{\footrulewidth}{0pt}
+%
+%\fancyhead[R]{\thepage}
+%\fancypagestyle{plain}{%
+%\fancyhf{}%
+%\fancyhead[R]{\thepage}%
+%}
+
+% Fonte de recursos visuais
+\newcommand{\source}[1]{%
+\vspace{0.1cm}
+\begin{center}%
+Fonte: #1%
+\end{center}%
+}
+\newcommand{\sourcemedaddy}{\source{Elaborado pelo autor.}}
+
+\usepackage[alf,abnt-repeated-title-omit=yes,abnt-emphasize=bf,abnt-etal-list=0]{abntex2cite} % Citações padrão ABNT
+
+%   \renewcommand\familydefault{\sfdefault} % mantém a fonte como padrão do documento (padrao arial)
+\renewcommand{\familydefault}{\rmdefault}
+\renewcommand{\sfdefault}{\rmdefault}
+
+
+% "Referências" em letras maiúsculas
+\addto\captionsbrazil{%
+  \renewcommand{\bibname}%
+    {REFERÊNCIAS}%
+}
+
+\frenchspacing % Retira espaço obsoleto entre as frases.
+
+\setlength\afterchapskip{18pt} % Ajusta o espaçamento entre o título do capitulo e o texto para 1,5
+
+
+\setlength\parindent{1.25cm} % Tamanho da identacao tabs
+
+
+\renewcommand{\ABNTEXchapterfont}{\bfseries\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsectionfont}{\bfseries\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsubsectionfont}{\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalsize\fontfamily{ptm}\selectfont}
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalsize\fontfamily{ptm}\selectfont}
+
+
+\bibliographystyle{_libs/abntex2-alf.bst}
+
+\renewcommand{\labelitemi}{\textendash}
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\alph{enumii})}

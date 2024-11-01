@@ -1,0 +1,105 @@
+\chapter{INTRODUÇÃO}
+A arquitetura de software é um processo complexo e dinâmico. Conforme Martin (2020)
+afirma, "uma arquitetura bem definida é um processo contínuo de investigação, e não um artefato
+congelado". Ou seja, trata-se de um estudo contínuo e análise profunda do software, bem como
+das definições e previsões futuras. Esse processo é condicionado a uma operação constante, em
+que todos os envolvidos no software devem estar alinhados com as tecnologias e as definições
+do profissional responsável pela arquitetura e definições técnicas do software. Esse processo
+de desenhar, planejar e construir uma aplicação é contínuo e envolve decisões críticas para
+o software. Muitas vezes, é referido como design de software, pois envolve a definição de
+componentes e conectores entre as aplicações do sistema. Além disso, é necessário estabelecer
+padrões de sistema, como a arquitetura em camadas, orientada a eventos, entre outras. Para
+arquitetar um software, é fundamental ter uma visão de longo prazo, prevendo futuras abordagens
+e qualidades do software.
+
+\section{Contextualização}
+A definição das arquiteturas para aplicações torna-se cada vez mais complexa, pois muitas
+decisões iniciais podem não estar claras, como a quantidade de acessos e o público-alvo. No
+entanto, é possível definir aspectos importantes desde o início, como se a comunicação será
+síncrona ou assíncrona, e onde os dados serão armazenados. Para isso, é necessário arquitetar,
+modelar e redesenhar o sistema várias vezes até que atenda às expectativas do arquiteto ou às
+necessidades do produto.
+
+\section{Delimitação do problema}
+
+A implementação de uma arquitetura robusta de software pode ser um desafio financeiro,
+onde o papel do arquiteto de software está mais voltado para a concepção da aplicação e não gera
+lucro direto. Considerando isso, o objetivo deste trabalho é destacar a importância crítica e a ne-
+cessidade de uma arquitetura de software apropriada para o desenvolvimento de um protótipo de
+aplicação de envio de documentos, com foco em uma arquitetura de micro serviços, mensageria
+e modelando com C4 Model. Além disso, essa pesquisa pretende examinar e incorporar modelos
+de arquitetura sugeridos por profissionais da comunidade e por cientistas proeminentes da área,
+visando simplificar a procura por soluções e minimizar os gastos relacionados à arquitetura de
+software. O estudo também tem como meta entender as razões que levam startups a hesitar em
+investir em arquitetos de software, fornecendo um modelo econômico e eficaz para a aplicação
+de envio de documentos.
+
+\section{Objetivos}
+
+\subsection{Objetivo geral}
+Desenvolver o protótipo de aplicação utilizando arquitetura de micro serviços, mensageria
+e modelagem com C4 model.
+
+\subsection{Objetivos específicos}
+\begin{itemize}
+    \item Desenvolver orientado à arquitetura de software utilizando a modelagem C4 Model;
+    \item Explorar técnicas e tecnologias modernas para o desenvolvimento;
+\end{itemize}
+
+\section{Justificativa}
+A medida que o volume de documentos digitais aumenta exponencialmente nas empresas
+e instituições, torna-se cada vez mais crítico possuir um sistema eficiente de envio de documentos.
+Além disso, a crescente demanda por escalabilidade, disponibilidade e confiabilidade nos sistemas
+de TI torna a arquitetura de micro serviços, mensageria e modelagem com C4 Model uma escolha
+apropriada para o desenvolvimento desta aplicação.
+
+O uso da arquitetura de micro serviços permitirá modularizar a aplicação, separando as
+funções e responsabilidades em serviços independentes. Isso facilita a manutenção e escalabi-
+lidade do sistema, além de garantir maior resiliência, já que a falha de um serviço não afeta a
+operação dos outros.
+
+A inclusão da mensageria na arquitetura auxilia na comunicação assíncrona entre os
+micro serviços, permitindo um maior desacoplamento entre eles. Esse desacoplamento garante
+uma melhor distribuição de carga e uma resposta mais rápida às mudanças, tanto em termos de
+volume de tráfego quanto de alterações nos requisitos do sistema.
+
+O uso do C4 Model, que é uma estrutura para visualização da arquitetura de software,
+oferece uma maneira clara e intuitiva de descrever e comunicar a estrutura do sistema. Essa
+abordagem melhora a colaboração entre os membros da equipe, permitindo uma compreensão
+comum da arquitetura e facilitando a tomada de decisões de design.
+
+A proposta deste trabalho é desenvolver um protótipo de uma aplicação que seja escalável,
+resiliente e de fácil manutenção, que se beneficie das vantagens das tecnologias de micro
+serviços, mensageria e C4 Model, e que possa eficientemente gerenciar e realizar o envio de
+documentos. Considerando as necessidades crescentes das empresas para gerir grandes volumes
+de documentos digitais, acredita-se que este trabalho terá um impacto significativo na eficiência
+das operações de TI e na produtividade geral das organizações.
+
+\section{Procedimentos metodológicos}
+O trabalho inicia com a definição clara do problema e das necessidades que a aplicação
+de envio de documentos deverá resolver. Isso envolve o alinhamento das expectativas, limitações,
+desafios e objetivos do projeto.
+Com o problema definido, prosseguimos para a modelagem dos dados usando o C4 Model.
+Nesta etapa, são criados diagramas para visualizar a arquitetura da aplicação em diferentes níveis
+de abstração, desde o contexto do sistema até os componentes individuais.
+Baseando-se na modelagem de dados, identificamos as estruturas de micro serviços
+necessárias e as comunicações entre eles. Este procedimento também engloba a definição da
+formatação e dos estilos de comunicação que serão empregados.
+Com os micro serviços e as comunicações definidos, começamos o desenvolvimento do
+protótipo da aplicação. Garantimos que os micro serviços sejam bem definidos e capazes de se
+comunicarem eficientemente.
+Em seguida, implementamos a mensageria, um método de comunicação entre os micro
+serviços. Escolhemos uma plataforma de mensageria adequada, com o Kafka, a configuramos e
+a integramos aos micro serviços.
+Depois da implementação, testamos a aplicação para garantir que o fluxo de envio de
+documentos funciona conforme o esperado. Os testes podem incluir testes unitários, de integração
+e de carga. Baseando-se nos resultados, realizamos os ajustes necessários.
+Por fim, documentamos todo o processo, desde a definição do problema até os testes e
+ajustes. A documentação descreve como a aplicação foi modelada, quais micro serviços foram
+utilizados, como a mensageria foi implementada, e os resultados dos testes.
+
+
+\section{Estrutura do trabalho}
+Neste capítulo foram apresentados tópicos sobre arquitetura de software e introdução
+acerca do trabalho e do conteúdo, nos próximos capítulos, citamos a revisão bibliográfica e eixos
+norteadores do trabalho.
