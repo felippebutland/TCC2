@@ -450,7 +450,7 @@ autônomo. Esses contêineres são isolados uns dos outros, o que significa que 
 pode ser executado de forma independente, sem interferir no sistema operacional ou em outros
 contêineres.
 
-\subsection*{Principais Vantagens do Docker}
+\subsection{Principais Vantagens do Docker}
 
 \begin{itemize}
     \item \textbf{Portabilidade}: Segundo \cite{turner2019docker}, os containers Docker são executados da mesma maneira em qualquer ambiente que tenha o Docker instalado, seja em uma máquina local, em um ambiente de nuvem ou em um cluster de servidores. Isso simplifica o processo de implantação e evita problemas de inconsistência entre ambientes de desenvolvimento, teste e produção;
@@ -460,7 +460,7 @@ contêineres.
     \item \textbf{Recursos avançados}: Além disso, o Docker oferece recursos avançados, como gerenciamento de redes, volumes para persistência de dados e integração com ferramentas de orquestração, como o Docker Swarm e o Kubernetes. Conforme mencionado por \cite{Matsumoto2017}, esses recursos permitem uma gestão eficiente de infraestrutura e facilitam a criação de ambientes de desenvolvimento e implantação altamente automatizados.
 \end{itemize}
 
-\section*{Modelagem de Dados com UML}
+\section{Modelagem de Dados com UML}
 
 A modelagem de dados é uma prática fundamental no desenvolvimento de software para
 representar visualmente a estrutura e o relacionamento dos dados em um sistema. A UML é uma
@@ -496,7 +496,7 @@ da UML na modelagem de dados requer conhecimento e prática adequados para garan
 precisão e a eficácia dos diagramas criados.
 
 
-\section*{Supabase e o Supabase Storage}
+\section{Supabase e o Supabase Storage}
 
 O Supabase é uma plataforma de desenvolvimento de código aberto que fornece serviços
 de backend para aplicativos web e móveis. Ele é frequentemente descrito como uma alternativa ao
@@ -524,7 +524,19 @@ garantindo que somente usuários autorizados possam acessar ou modificar determi
 Conforme afirmado por \cite{ONeill2022}, isso é crucial para proteger informações sensíveis e
 garantir a privacidade dos dados armazenados.
 
-\section*{API Gateway}
+\subsection{Alternativas ao supabase}
+
+\paragraph{Firebase} Assim como o Supabase, o Firebase é uma plataforma de backend como serviço (BaaS), projetada para fornecer infraestrutura e ferramentas para o desenvolvimento rápido de aplicativos web e móveis. Embora ambos ofereçam recursos como autenticação, banco de dados em tempo real e armazenamento de arquivos, o Firebase se diferencia por utilizar um banco de dados NoSQL baseado em documentos (Firestore) e oferecer forte integração com o ecossistema do Google. No entanto, o Firebase é proprietário e fechado, ao contrário do Supabase, que é uma plataforma de código aberto, o que pode ser uma vantagem para desenvolvedores que preferem ambientes mais flexíveis e personalizáveis.
+
+\paragraph{MongoDB Atlas} MongoDB Atlas é uma solução de banco de dados gerenciado para MongoDB, um dos bancos de dados NoSQL mais populares e amplamente utilizados, baseado em documentos. Em comparação com o Supabase, que usa PostgreSQL como backend de banco de dados relacional, o MongoDB Atlas oferece uma estrutura mais flexível e orientada a documentos, o que pode ser vantajoso para aplicações que exigem modelos de dados mais dinâmicos. Por outro lado, o Supabase, por ser baseado em SQL, pode oferecer vantagens em aplicações que precisam de transações complexas e relacionamentos estruturados entre dados.
+
+\paragraph{AWS Amplify} AWS Amplify, da Amazon Web Services, é uma alternativa completa ao Supabase, oferecendo autenticação, armazenamento de arquivos, e APIs em tempo real, além de um banco de dados NoSQL baseado em DynamoDB. Comparado ao Supabase, o Amplify integra-se profundamente com a infraestrutura AWS, sendo ideal para desenvolvedores que já estão no ecossistema da Amazon e buscam uma solução altamente escalável e personalizável. No entanto, o Supabase pode ser uma escolha mais acessível e menos complexa, especialmente para desenvolvedores que preferem uma experiência mais direta e uma plataforma de código aberto.
+
+\paragraph{Couchbase} Couchbase é um banco de dados NoSQL que combina um modelo orientado a documentos com recursos de cache de alta performance. Assim como o Supabase, ele visa escalabilidade e baixa latência, mas o Couchbase é voltado para cenários em que o desempenho em tempo real é uma prioridade absoluta, como em jogos ou redes sociais. Em contrapartida, o Supabase, com sua base em PostgreSQL, pode ser uma escolha mais adequada para aplicativos que exigem maior consistência e suporte para operações SQL, mantendo também um ambiente de desenvolvimento mais familiar para aqueles que trabalham com bancos de dados relacionais.
+
+\paragraph{Fauna} Fauna é um banco de dados distribuído com transações ACID e suporte nativo para GraphQL, projetado para arquiteturas serverless e uso em nuvem. Em comparação com o Supabase, que é baseado em SQL e usa PostgreSQL, o Fauna oferece um modelo de dados mais flexível e distribuído, com recursos ideais para aplicações que necessitam de baixa latência global e não exigem uma infraestrutura de servidor tradicional. No entanto, o Supabase pode ser mais atraente para desenvolvedores que precisam de uma integração mais próxima com SQL e recursos como Row-Level Security (RLS), fundamentais para projetos com requisitos de segurança mais rígidos.
+
+\section{API Gateway}
 
 O API Gateway é um componente essencial na arquitetura de microservices, atuando
 como um ponto de entrada centralizado para todas as solicitações de API. Ele desempenha
