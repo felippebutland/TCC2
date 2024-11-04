@@ -112,7 +112,7 @@ Para atuar como a entrada centralizada para as requisições, o API Gateway foi 
     nest generate app api-gateway
     \end{verbatim}
     \item Instale as dependências necessárias, como o \texttt{@nestjs/microservices} para habilitar a comunicação entre micro serviços.
-    \item Configure os controladores no API Gateway para encaminhar as requisições para os serviços apropriados. Utilize decorators como \texttt{@Get()}, \texttt{@Post()} etc., para definir as rotas.
+    \item Configure os controladores no API Gateway para encaminhar as requisições para os serviços apropriados.
     \item Implemente a lógica de balanceamento de carga, se necessário, utilizando a biblioteca \texttt{@nestjs/microservices} para garantir que as requisições sejam distribuídas de forma equitativa entre instâncias de micro serviços.
 \end{enumerate}
 
@@ -135,7 +135,7 @@ A configuração do NestJS em um monorepo e a implementação do API Gateway pro
 O Docker é utilizado para empacotar as aplicações em containers, garantindo consistência entre os ambientes de desenvolvimento e produção. O Docker Compose permite orquestrar múltiplos containers, facilitando a comunicação entre os micro serviços e o banco de dados. Para configurar o Docker e o Docker Compose para este projeto, siga os passos abaixo:
 
 \subsection{Criação do Dockerfile}
-Cada micro serviço criado no NestJS precisará de um arquivo Dockerfile para definir como o container será construído. O exemplo a seguir mostra a configuração básica de um Dockerfile para um micro serviço NestJS:
+Cada micro serviço criado no NestJS precisará de um arquivo Dockerfile para definir como o container será construído. O exemplo a seguir mostra a configuração de um Dockerfile para um micro serviço NestJS:
 
 \begin{verbatim}
 FROM node:16
@@ -148,7 +148,7 @@ CMD ["npm", "run", "start:prod"]
 \end{verbatim}
 
 \subsection{Criação do docker-compose.yml}
-O arquivo \texttt{docker-compose.yml} será utilizado para definir e orquestrar os containers dos micro serviços e dos componentes auxiliares, como bancos de dados e filas de mensagens. Um exemplo básico de configuração para o Docker Compose é apresentado a seguir:
+O arquivo \texttt{docker-compose.yml} será utilizado para definir e orquestrar os containers dos micro serviços e dos componentes auxiliares, como bancos de dados e filas de mensagens. O arquivo de configuração do Docker Compose é apresentado a seguir:
 
 \begin{verbatim}
 version: '3.8'
@@ -331,3 +331,150 @@ As grandes empresas de tecnologia também utilizam mensageria e microserviços p
 O uso de mensageria e microserviços tem sido fundamental para o sucesso de diversas startups e grandes empresas de tecnologia. Essas arquiteturas oferecem vantagens significativas em termos de escalabilidade, resiliência e capacidade de resposta a mudanças no mercado. Além disso, a capacidade de implantar e escalar serviços independentemente permite que as organizações inovem rapidamente e respondam às demandas dos usuários de maneira eficiente.
 
 À medida que mais organizações adotam essa abordagem, espera-se que novas inovações e casos de uso continuem a emergir, solidificando ainda mais a importância da mensageria e dos microserviços na engenharia de software moderna. A tendência é que a combinação de mensageria e microserviços se torne cada vez mais prevalente, com empresas buscando maneiras de otimizar seus processos e melhorar a experiência do cliente por meio da tecnologia.
+
+\section{Implementação com C4}
+
+A implementação do contexto utilizando a abordagem C4 é essencial para compreender como o sistema se relaciona com seus usuários e outros sistemas externos. A Figura \ref{fig:c4-context} ilustra o contexto geral do sistema, destacando as interações entre os principais atores e as fronteiras do sistema. Essa visão de contexto não apenas identifica as dependências externas, mas também fornece um guia valioso para atender às expectativas dos stakeholders.
+
+\begin{figure}
+    \centering
+    \caption{Contexto C4}
+    \includegraphics[width=0.25\linewidth]{assets/c4-context-2}
+    \sourcemedaddy
+    \label{fig:c4-context-2}
+\end{figure}
+
+Em seguida, a estrutura de componentes, mostrada na Figura \ref{fig:component-c4.png}, detalha a modularização do sistema. Cada componente representa uma parte específica da aplicação, responsável por funcionalidades distintas e interagindo de maneira a formar um todo coerente. Essa divisão em componentes permite uma melhor gestão do código, facilita a manutenção e promove uma arquitetura mais limpa e escalável.
+
+\begin{figure}
+    \centering
+    \caption{Componentes C4}
+    \includegraphics[width=0.25\linewidth]{assets/component-c4}
+    \sourcemedaddy
+    \label{fig:component-c4.png}
+\end{figure}
+
+
+Por último, a Figura \ref{fig:container-c4} ilustra a disposição dos containers que compõem a arquitetura do sistema. Cada container encapsula uma funcionalidade específica, como serviços, bancos de dados ou micro-serviços, e é responsável por sua própria lógica e comunicação. A containerização contribui significativamente para a escalabilidade e modernização das aplicações, facilitando a gestão das dependências e versões.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\linewidth]{assets/container-c4}
+    \caption{Container C4}
+    \sourcemedaddy
+    \label{fig:container-c4}
+\end{figure}
+
+Dessa forma, a abordagem C4 não apenas organiza a arquitetura de software de maneira estruturada, mas também promove uma comunicação mais clara entre as partes interessadas, contribuindo para o desenvolvimento de um sistema coeso e adaptável às futuras necessidades.
+
+\section{Benchmark}
+
+Para o benchmark da aplicação, utilizamos uma ferramenta chamada Artillery, que executa requisições por tempo definido no arquivo de configuração.
+O Artillery é uma ferramenta popular para realizar testes de carga e desempenho em aplicações web, fornecendo informações detalhadas sobre a capacidade de resposta de uma API ou servidor. Durante um teste de benchmark, ele gera uma saída com várias métricas importantes.
+
+Para a configuração, é instalado o pacote NPM globalmente, com o seguinte comando:
+
+\begin{verbatim}
+    npm install -g artillery
+\end{verbatim}
+
+Após isso, basta criar um arquivo chamado benchmark.yml com a seguinte configuração:
+
+\begin{verbatim}
+    config:
+        target: "http://localhost:3000"
+        phases:
+            - duration: 60
+              arrivalRate: 10
+        scenarios:
+          - flow:
+              - get:
+                  url: "/login"
+\end{verbatim}
+
+Feito isso, basta rodar o comando:
+
+\begin{verbatim}
+    artillery run benchmark.yml
+\end{verbatim}
+
+A resposta que a aplicação teve nesse teste foi:
+
+\begin{verbatim}
+    Started phase 0, duration: 60s @ 10 requests per second
+    Report @ 10:34:01(+0000)
+    Elapsed time: 10 seconds
+      Scenarios launched: 100
+      Scenarios completed: 100
+      Requests completed: 100
+      RPS sent: 10
+      Response time (msec):
+        min: 20
+        max: 100
+        median: 50
+        p95: 90
+        p99: 95
+    All virtual users finished
+    Summary report @ 10:35:01(+0000)
+      Scenarios launched: 600
+      Scenarios completed: 600
+      Requests completed: 600
+      RPS sent: 10.1
+      RPS received: 10.0
+      Response time (msec):
+        min: 20
+        max: 120
+        median: 55
+        p95: 100
+        p99: 110
+      Scenario counts:
+        0: 600 (100%)
+      Codes:
+        200: 600
+\end{verbatim}
+
+\subsection{1. Elapsed Time (Tempo Decorrido)}
+
+O \textit{Elapsed Time} representa o tempo total que passou desde o início do teste até o momento atual da medição. Esse dado é crucial para acompanhar o progresso do teste e para entender a variação de desempenho em diferentes momentos, especialmente em ambientes onde a carga pode aumentar progressivamente.
+
+\section*{2. Scenarios Launched (Cenários Lançados)}
+
+Os \textit{Cenários Lançados} indicam quantos cenários de teste (ou seja, combinações de interações simuladas) foram iniciados durante o período de teste. Cada cenário representa uma sequência de requisições simulando o comportamento de um usuário interagindo com a aplicação. Esse dado é útil para verificar se a ferramenta está simulando corretamente o número de usuários conforme o planejado.
+
+\subsection{3. Scenarios Completed (Cenários Completos)}
+
+\textit{Scenarios Completed} mostra quantos cenários foram concluídos com sucesso. Esse número deve ser comparado com os cenários lançados para identificar possíveis falhas. Se muitos cenários lançados não são completados, isso pode indicar problemas na capacidade do servidor de processar todas as requisições ou na estabilidade da aplicação sob carga.
+
+\subsection{4. Requests Completed (Requisições Concluídas)}
+
+Esse dado mostra o número total de requisições feitas ao servidor durante o teste. É uma medida útil para avaliar a robustez da aplicação, ajudando a verificar se a aplicação pode lidar com o número total de requisições planejadas em um determinado período.
+
+\subsection{5. RPS Sent / Received (Requisições Por Segundo Enviadas e Recebidas)}
+
+RPS (\textit{Requests Per Second}) representa a taxa média de requisições enviadas ao servidor e a taxa de respostas recebidas do servidor por segundo. Esse indicador é essencial para avaliar a capacidade do servidor de processar requisições de forma consistente ao longo do tempo. Uma diferença significativa entre as requisições enviadas e recebidas pode indicar problemas de desempenho, como gargalos ou limitações de hardware.
+
+\subsection{6. Response Time (Tempo de Resposta)}
+
+O tempo de resposta representa o tempo médio que o servidor leva para responder a uma requisição. O Artillery fornece várias estatísticas úteis sobre o tempo de resposta:
+
+\begin{itemize}
+    \item \textbf{Min (Mínimo)}: O menor tempo de resposta registrado, indicando o tempo mais rápido em que uma requisição foi processada. Esse dado pode ser útil para verificar o desempenho em condições ideais.
+    \item \textbf{Max (Máximo)}: O maior tempo de resposta registrado, que pode indicar potenciais gargalos ou momentos de alta latência na aplicação.
+    \item \textbf{Median (Mediana)}: A mediana do tempo de resposta, que representa o tempo de resposta central entre todas as requisições. Ela é importante para entender a experiência de um usuário típico, pois elimina valores extremos que poderiam distorcer a média.
+    \item \textbf{p95 (Percentil 95)} e \textbf{p99 (Percentil 99)}: Esses percentis mostram os tempos de resposta em que 95\% e 99\% das requisições foram processadas. São úteis para avaliar a consistência do desempenho, pois indicam o tempo de resposta para quase todas as requisições, excluindo as exceções. Se esses valores estiverem muito altos, pode significar que um número significativo de usuários está experimentando lentidão.
+\end{itemize}
+
+\subsection{7. Codes (Códigos de Resposta)}
+
+Essa seção apresenta uma contagem dos códigos de resposta HTTP retornados pelo servidor, como \texttt{200 OK}, \texttt{500 Internal Server Error}, etc. Essa métrica é fundamental para identificar a saúde da aplicação durante o teste. Por exemplo:
+
+\begin{itemize}
+    \item \texttt{200 OK} indica que as requisições foram processadas com sucesso.
+    \item \texttt{500 Internal Server Error} e outros códigos de erro indicam falhas na aplicação ou problemas que precisam ser resolvidos para aumentar a robustez do sistema.
+\end{itemize}
+
+\subsection{Conclusão}
+
+A aplicação, teve 600 requisições, durante 1 minuto (60s), cujo todas deram sucesss (status code 200), o tempo de resposta médio foi de 55 milisegundos, foram enviadas e recebidas 10.1 em média requisições por segundo.
+
+
